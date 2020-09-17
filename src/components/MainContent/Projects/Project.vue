@@ -1,14 +1,14 @@
 <template>
     <div class="card_container mb-5 d-flex">
-        <div class="card">
-            <i class="fas fa-ellipsis-h ml-auto card_three-dots"></i>
-            <div class="card_image--container"><img class="card_image" :src="project.img" alt="card image"></div>
-            <p class="card_project pt-3 mb-0">{{ project.name }}</p>
-            <p class="card_project--created">Created: {{ project.date }}</p>
-            <div class="project-technology d-flex">
+        <div class="card" :class="{listGrid: isStyleGrid, listRow: isStyleList}">
+            <i class="fas fa-ellipsis-h ml-auto card_three-dots" :class="{card_three_dots_list: isStyleList}"></i>
+            <div class="card_image--container" :class="{card_element_list: isStyleList}"><img class="card_image" :src="project.img" alt="card image"></div>
+            <p class="card_project pt-3 mb-0" :class="{card_element_list: isStyleList}">{{ project.name }}</p>
+            <p class="card_project--created" :class="{card_element_list_created: isStyleList}">Created: {{ project.date }}</p>
+            <div class="project-technology d-flex" :class="{card_element_list_project: isStyleList}">
                 <button class="card_project--technology" v-for="technology in project.technology" :key="technology.name" :style="{ backgroundColor: technology.backgroundColor, color: technology.color}"><i :class="technology.icon" class="card_project--icon pr-3"></i>{{ technology.name }}</button>
             </div>                                             
-            <div class="card_recommend pt-5">
+            <div class="card_recommend pt-5" :class="{card_recommend_list: isStyleList}">
                 <div class="card_recommend__friends d-flex align-items-center">
                     <img src="../../../assets/user-2.jpg" alt="Friend 1" class="card_recommend__photo">     
                     <img src="../../../assets/user-3.jpg" alt="Friend 1" class="card_recommend__photo">
@@ -24,17 +24,52 @@
 
 <script>
     export default {
-        props: ['project']
+        props: ['project', 'isStyleList', 'isStyleGrid']
+        
     }
 </script>
 
 <style lang="scss" scoped>
 
+    
+    .listRow {
+        display: flex;
+        flex-direction: row;
+        align-items: center !important;
+    }
+
+    .listGrid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card_three_dots_list {
+        margin-left: 2rem !important;
+        margin-right: 4rem;
+    }
+
+    .card_element_list {
+        flex: 0 0 15%;
+
+        &_created {
+            margin-bottom: 0 !important;
+        }
+
+        &_project {
+            flex: 0 0 25%; 
+            margin-left: 4rem;
+        }
+    }
+
+    .card_recommend_list {
+        margin-left: auto;
+    }
+
     .card_container {
        flex: 0 0 31%;
        max-width: 40rem;
        min-width: 30rem;
-       height: 35rem;
     }
     .card {
         width: 100%;

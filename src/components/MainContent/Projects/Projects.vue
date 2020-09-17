@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="width: 100%;">
         <div class="projects_header">
             <div class="projects_header--sort d-flex align-items-center">
                 <i class="fas fa-sort-amount-down projects_header--icon"></i>
@@ -12,14 +12,14 @@
                     style="transform: rotate(90deg);font-weight: 400; font-size: 16px;"
                 >&#62;</span>
                 <div class="project_header--view ml-auto d-flex align-items-center">
-                    <i class="fas fa-list-ul projects_header--icon"></i><p class="ml-2 mr-5 mb-0">LIST</p>
-                    <i class="fas fa-th projects_header--icon projects_header--icon-grid"></i><p class="ml-2 mr-4 mb-0">GRID</p>
+                    <i class="fas fa-list-ul projects_header--icon" @click="isStyleList = true; isStyleGrid = false"></i><p class="ml-2 mr-5 mb-0">LIST</p>
+                    <i class="fas fa-th projects_header--icon projects_header--icon-grid" @click="isStyleList = false; isStyleGrid = true"></i><p class="ml-2 mr-4 mb-0">GRID</p>
                     <button class="ml-auto projects_header--button text-white d-flex align-items-center"><span class="projects_header--button-symbol d-flex align-items-center justify-content-center">&#43;</span><p class="pl-3 mb-0">NEW PROJECT</p></button>
                 </div>
             </div>
         </div>
-        <div class="projects d-flex flex-wrap justify-content-between">
-            <app-project v-for="project in projects" :project="project" :key="project.name"></app-project>
+        <div class="projects" :class="{ styleList: isStyleList, styleGrid: isStyleGrid}">
+            <app-project v-for="project in projects" :project="project" :isStyleList="isStyleList" :isStyleGrid="isStyleGrid" :key="project.name" ></app-project>
         </div>
     </div>
 </template>
@@ -31,19 +31,54 @@ export default {
   components: {
     appProject: Project,
   },
+  data() {
+      return {
+            isStyleList: false,
+            isStyleGrid: true
+      }
+  },
   computed: {
       projects() {
           return this.$store.getters.projects 
       }
-  },
+  }
 };
 </script>
 
 <style lang="scss" scoped>
+.card {
+    display: flex;
+    flex-direction: row !important;
+}
+
+.styleList {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    & > * {
+        width: 100%;
+        flex: 1;
+        max-width: none;
+    }
+}
+
+.styleGrid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    & > * {
+        flex: 0 0 31%;
+        max-width: 40rem;
+        min-width: 30rem;
+        height: 35rem;
+    }
+}
 .projects {
   width: 100%;
   padding: 2rem 4rem;
-  height: 80rem;
 
  &_header {
      font-size: 1.4rem;

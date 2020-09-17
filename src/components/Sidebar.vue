@@ -122,7 +122,7 @@
 
 <style lang="scss" scoped>
     .sidebar {
-        height: 100%;
+        height: 100% !important;
     }
 
     .media-item > * {
