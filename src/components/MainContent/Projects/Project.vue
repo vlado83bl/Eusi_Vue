@@ -30,20 +30,22 @@
 </script>
 
 <style lang="scss" scoped>
-
-    
+    /////////////////////
+    //STYLING SINGLE CARD IN LIST VIEW
     .listRow {
         display: flex;
         flex-direction: row;
         align-items: center !important;
     }
-
+    /////////////////////
+    //STYLING SINGLE CARD IN GRID VIEW
     .listGrid {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-
+    /////////////////////
+    //STYLING ELEMENTS IN CARD IN LIST VIEW
     .card_three_dots_list {
         margin-left: 2rem !important;
         margin-right: 4rem;
@@ -65,7 +67,8 @@
     .card_recommend_list {
         margin-left: auto;
     }
-
+    /////////////////////
+    //GENERAL STYLING OF CARDS
     .card_container {
        flex: 0 0 31%;
        max-width: 40rem;

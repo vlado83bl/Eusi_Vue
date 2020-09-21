@@ -199,33 +199,23 @@
 table-hover {
     width: 100% !important;
 }
-@mixin flex-column-align {
+////////////////////
+//FLEX SHORTCUT CLASSES
+.flex_column_align {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.flex_column_align {
-    @include flex-column-align
-}
-
-@mixin flex-align-justify {
+.flex_align_justify {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.flex_align_justify {
-    @include flex-align-justify;
-}
-
-@mixin flex-align {
+.flex_align {
     display: flex;
     align-items: center;
-}
-
-.flex_align {
-    @include flex-align
 }
 /////////////////
 //HEADER PANEL
@@ -368,12 +358,4 @@ table-hover {
     height: .7rem;
     border-radius: 50%;
 }
-
-////////////////////
-//BREAKPOINTS
-$bp-largest: 75em;    //1200px; 
-$bp-large: 68.75em;    //1100px; 
-$bp-medium: 56.25em;    //900px; 
-$bp-small: 37.5em;    //600px; 
-$bp-smallest: 31.25em;    //500px; 
 </style>

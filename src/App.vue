@@ -8,16 +8,10 @@
                 </a>
             </div>
             <div class="main">
-
-                <!-- <div class="row"> -->
-                    <app-sidebar :showSideMenu = "showSideMenu"></app-sidebar>
-                    <!-- <app-dashboard></app-dashboard> -->
-                    <!-- <app-projects></app-projects> -->
-                    <!-- <app-media></app-media> -->
-                    <transition name="slide" mode="out-in">
-                        <router-view></router-view>
-                    </transition>
-                <!-- </div>  -->
+                <app-sidebar :showSideMenu = "showSideMenu"></app-sidebar>
+                <transition name="slide" mode="out-in">
+                    <router-view></router-view>
+                </transition>
             </div>
         </div>
     </div>
@@ -26,16 +20,10 @@
 <script>
 import Header from '@/components/Header.vue';
 import Sidebar from '@/components/Sidebar.vue';
-// import Dashboard from './components/MainContent/Projects/Dashboard';
-// import Projects from './components/MainContent/Projects/Projects';
-// import Media from './components/MainContent/Projects/Media';
 export default {
     components: {
         appHeader: Header,
-        appSidebar: Sidebar,
-        // appDashboard: Dashboard
-        // appProjects: Projects
-        // appMedia: Media
+        appSidebar: Sidebar
     },
     data() {
         return {

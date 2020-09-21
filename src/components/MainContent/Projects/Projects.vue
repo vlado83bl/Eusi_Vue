@@ -46,77 +46,100 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card {
-    display: flex;
-    flex-direction: row !important;
-}
-
-.styleList {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-    & > * {
+    .card {
+        display: flex;
+        flex-direction: row !important;
+    }
+    /////////////////////
+    //STYLING CARDS FOR LIST VIEW   
+    .styleList {
+        display: flex;
+        flex-direction: column;
         width: 100%;
-        flex: 1;
-        max-width: none;
-    }
-}
 
-.styleGrid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-    & > * {
-        flex: 0 0 31%;
-        max-width: 40rem;
-        min-width: 30rem;
-        height: 35rem;
-    }
-}
-.projects {
-  width: 100%;
-  padding: 2rem 4rem;
-
- &_header {
-     font-size: 1.4rem;
-     color: rgb(151, 167, 184);
-
-    &--icon {
-        font-size: 1.6rem;
-        color: rgb(140, 158, 177);
-        cursor: pointer;
-
-        &-grid {
-            color: rgb(120, 60, 139);
+        & > * {
+            width: 100%;
+            flex: 1;
+            max-width: none;
         }
     }
+    /////////////////////
+    //STYLING CARDS FOR GRID VIEW
+    .styleGrid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
 
-    &--sort {
-        padding: 2rem 4rem 0 4rem;
-    }
-
-    &--button {
-        padding: 1rem 1.5rem;
-        background-image: linear-gradient(to right, rgb(120, 60, 139), rgb(197, 60, 150));
-        border: none;
-        border-radius: 2.5rem;
-        font-size: 1.2rem;
-
-        &:focus {
-            outline: none;
+            & > * {
+            flex: 0 0 31%;
+            max-width: 40rem;
+            min-width: 30rem;
+            height: 35rem;
         }
 
-        &-symbol {
-            width: 2.5rem;
-            height: 2.5rem;
-            border: 1px solid white;
-            border-radius: 50%;
-            font-size: 1.8rem;
+        @media only screen and (max-width: 1200px) {
+            justify-content: center;
+
+            & > * {
+                margin-right: 2.7rem;
+                flex: 0 0 45%;
+                max-width: 50rem;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            justify-content: center;
+
+            & > * {
+                margin-right: 0;
+                flex: 1
+            }
         }
     }
-  }
-}
+    /////////////////////
+    //PROJECTS HEADER STYLING
+    .projects {
+    width: 100%;
+    padding: 2rem 4rem;
+
+    &_header {
+        font-size: 1.4rem;
+        color: rgb(151, 167, 184);
+
+        &--icon {
+            font-size: 1.6rem;
+            color: rgb(140, 158, 177);
+            cursor: pointer;
+
+            &-grid {
+                color: rgb(120, 60, 139);
+            }
+        }
+
+        &--sort {
+            padding: 2rem 4rem 0 4rem;
+        }
+
+        &--button {
+            padding: 1rem 1.5rem;
+            background-image: linear-gradient(to right, rgb(120, 60, 139), rgb(197, 60, 150));
+            border: none;
+            border-radius: 2.5rem;
+            font-size: 1.2rem;
+
+                &:focus {
+                    outline: none;
+                }
+
+                &-symbol {
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    border: 1px solid white;
+                    border-radius: 50%;
+                    font-size: 1.8rem;
+                }
+            }
+        }
+    }
 </style>
