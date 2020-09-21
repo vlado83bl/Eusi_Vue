@@ -2,9 +2,15 @@
     <div id="app">
         <div class="app-container">
             <app-header></app-header>
+            <div class="hamburger_menu">
+                <a href="#" class="hamburger_menu-item" @click="changeMenu">
+                    <i class="fas fa-bars hamburger_menu-item-icon"></i>
+                </a>
+            </div>
             <div class="main">
+
                 <!-- <div class="row"> -->
-                    <app-sidebar></app-sidebar>
+                    <app-sidebar :showSideMenu = "showSideMenu"></app-sidebar>
                     <!-- <app-dashboard></app-dashboard> -->
                     <!-- <app-projects></app-projects> -->
                     <!-- <app-media></app-media> -->
@@ -31,6 +37,16 @@ export default {
         // appProjects: Projects
         // appMedia: Media
     },
+    data() {
+        return {
+            showSideMenu: false
+        }
+    },
+    methods: {
+        changeMenu() {
+            return this.showSideMenu == false? this.showSideMenu = true: this.showSideMenu = false;
+        }
+    },
     created() {
         this.$store.dispatch('initMediaItems');
         this.$store.dispatch('initProjects');
@@ -40,6 +56,32 @@ export default {
 </script>
 
 <style lang="scss">
+    ////////////////////
+    //HAMBURGER MENU
+    .hamburger_menu {
+        width: 100%;
+        background-color: rgb(52, 49, 76);
+        display: none;
+
+        @media only screen and (max-width: 900px) {
+            display: block;
+            position: relative;
+            left: 0;
+        }
+
+        &-item {
+            display: block;
+            padding: 1.4rem 4rem;
+
+            &-icon {
+                font-size: 2rem;
+                color: #fff;
+            }
+
+        }
+    }
+    ////////////////////
+    //COMPONENTS TRANSITION
     .slide-enter-active {
         animation: slide-in 200ms ease-out forwards;
     }
@@ -69,6 +111,8 @@ export default {
             opacity: 0;
         }
     }
+    ///////////////////////
+    //CONTAINER STYLING
     .container {
         font-family: "Roboto", sans-serif;
         font-weight: 400;
@@ -76,9 +120,16 @@ export default {
         display: flex;
         flex-direction: column;
     }
+    ///////////////////////
+    //MAIN PART STYLING
     .main {
+        width: 100%;
         display: flex;
         background-color: rgb(244, 246, 249);
+
+        @media only screen and (max-width: 900px) {
+            position: relative;
+        }
     }
 
     

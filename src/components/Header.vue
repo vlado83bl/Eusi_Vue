@@ -32,7 +32,7 @@
 <style lang="scss" scoped>
 
     .header {
-        border-bottom: 1px solid rgb(220, 225, 232);;
+        border-bottom: 1px solid rgb(220, 225, 232);
     }
 
     .brand-logo {
@@ -97,4 +97,12 @@
             }
         }
     }
+
+////////////////////
+//BREAKPOINTS
+$bp-largest: 75em;    //1200px; 
+$bp-large: 68.75em;    //1100px; 
+$bp-medium: 56.25em;    //900px; 
+$bp-small: 37.5em;    //600px; 
+$bp-smallest: 31.25em;    //500px; 
 </style>

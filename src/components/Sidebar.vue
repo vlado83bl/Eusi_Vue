@@ -1,5 +1,5 @@
 <template>
-    <div class="sidebar-container">
+    <div class="sidebar-container" :class="{showSidebar: showSideMenu}">
         <nav class="sidebar">
             <ul class="side-nav">
                 <router-link :to="{ name: 'Dashboard' }" tag="li" class="side-nav__item pt-4">
@@ -104,6 +104,7 @@
 
 <script>
     export default {
+        props: ['showSideMenu'],
         data() {
             return {
                 showed: false,
@@ -121,22 +122,50 @@
 </script>
 
 <style lang="scss" scoped>
-    .sidebar {
-        height: 100% !important;
-    }
+////////////////////////
+//DYNAMIC STYLING
+.showSidebar {
+    display: block !important;
+    position:absolute;
+    z-index:1;
+    left:0;
+    height: 100% !important;
+    opacity: .9;
+    overflow-x: hidden;
 
-    .media-item > * {
-        padding-left: 4rem;    
+    &:before, 
+    &:after {
+        content: "";
+        position: absolute;
+        background: black;  /* Match the background */
+        top: 0;
+        bottom: 0;
+        height: 9999px; 
     }
-    .item-circle {
-        width: .7rem;
-        height: .7rem;
-        border-radius: 50%;
-    }
+}
+//////////////////
+//SIDEBAR STYLING
+.sidebar {
+    height: 100% !important;
+}
 
-    .sidebar-container {
-        flex: 0 0 18%;
+.media-item > * {
+    padding-left: 4rem;    
+}
+.item-circle {
+    width: .7rem;
+    height: .7rem;
+    border-radius: 50%;
+}
+
+.sidebar-container {
+    flex: 0 0 18%;
+    
+    @media only screen and (max-width: 900px) {
+        display: none;
+        width: 27%;
     }
+}
 
     .sidebar {
         background-color: rgb(52, 49, 76);
@@ -146,7 +175,7 @@
         list-style: none;
 
         &__item {
-
+            // display: none;
             &:not(:last-child) {
                 margin-bottom: .8rem;
             }
@@ -230,4 +259,12 @@
 .display {
     display: block !important;
 }
+
+////////////////////
+//BREAKPOINTS
+$bp-largest: 75em;    //1200px; 
+$bp-large: 68.75em;    //1100px; 
+$bp-medium: 56.25em;    //900px; 
+$bp-small: 37.5em;    //600px; 
+$bp-smallest: 31.25em;    //500px; 
 </style>

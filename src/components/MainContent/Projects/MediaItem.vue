@@ -41,6 +41,12 @@
         width: 100%;
         border: none;
 
+        
+        // @media only screen and(max-width: 1000px) {
+        //     flex-direction: column !important;
+        //     align-items: center !important;
+        // }
+
         &_image {
             margin-left: 4rem;
             height: 6.5rem;
@@ -108,11 +114,6 @@
                 outline: none;
             }
         }
-
-
-
-
-
 
         &_label--container {
             display: block;
@@ -182,4 +183,12 @@
         align-items: center;
         justify-content: center;
     }
+
+////////////////////
+//BREAKPOINTS
+$bp-largest: 75em;    //1200px; 
+$bp-large: 68.75em;    //1100px; 
+$bp-medium: 56.25em;    //900px; 
+$bp-small: 37.5em;    //600px; 
+$bp-smallest: 31.25em;    //500px; 
 </style>
