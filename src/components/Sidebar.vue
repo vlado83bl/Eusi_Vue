@@ -150,7 +150,11 @@
 }
 
 .media-item > * {
-    padding-left: 4rem;    
+    padding-left: 4rem;  
+
+    @media only screen and (max-width: 450px) { 
+        padding-left: 15%;
+    }  
 }
 .item-circle {
     width: .7rem;
@@ -165,6 +169,16 @@
         display: none;
         width: 27%;
     }
+
+    @media only screen and (max-width: 600px) {
+        display: none;
+        width: 40%;
+    }
+    @media only screen and (max-width: 450px) {
+        display: none;
+        width: 100%;
+    }
+
 }
 
     .sidebar {
@@ -175,7 +189,6 @@
         list-style: none;
 
         &__item {
-            // display: none;
             &:not(:last-child) {
                 margin-bottom: .8rem;
             }
@@ -193,6 +206,10 @@
         position: relative;
         z-index: 10;
         transition: background-color .5s, color .5s, border-left .5s;
+        
+        @media only screen and (max-width: 450px) {
+            padding-left: 20%;
+        }
 
         &:hover {
             color: rgb(179, 179, 186);

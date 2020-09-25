@@ -95,6 +95,9 @@
     color: rgb(174, 187, 202);
 
     &--header {
+        @media only screen and (max-width: 700px) {
+            display: none !important;
+        }
 
         &-box {
             flex: 0 0 12%;

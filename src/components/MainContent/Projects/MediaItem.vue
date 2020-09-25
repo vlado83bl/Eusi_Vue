@@ -42,6 +42,22 @@
         width: 100%;
         border: none;
 
+        @media only screen and (max-width: 700px) {
+            flex-direction: column !important;
+            align-items: center !important;
+            margin: 1.5rem 10%;
+            padding: 1.5rem 4rem;
+
+            & > * {
+                margin: 2rem 0 !important;
+                padding: 0 !important;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            margin: 1.5rem 0;
+        }
+
         &_image {
             margin-left: 4rem;
             height: 6.5rem;
@@ -55,6 +71,12 @@
             flex: 0 0 18%;
             overflow: hidden;
             color: rgb(99, 99, 107);
+
+            @media only screen and (max-width: 700px) {
+                text-align: center;
+            }
+
+
         }
         
         &_blockchain {
@@ -64,6 +86,10 @@
             text-align: center;
             margin-left: 8rem;
             padding: .1rem .6rem .3rem .6rem;
+
+            @media only screen and (max-width: 700px) {
+                margin-left: 0;
+            }
 
             &-container {
                 flex: 0 0 21%;
@@ -116,6 +142,10 @@
             position: relative;
             cursor: pointer;
             font-size: 2rem;
+
+            @media only screen and (max-width: 700px) {
+                display: none;
+            }
 
             input {
                 position: absolute;

@@ -5,7 +5,7 @@
                 <h1>Hello Nemanja!</h1>
                 <p class="start-panel_heading--text">Let's start adding some content</p>
             </div>
-            <div class="start-panel_model d-flex align-items-center mt-2">
+            <div class="start-panel_model d-flex align-items-center mt-2 flex-wrap">
                 <div class="start-panel_model--item flex_column_align pl-3">
                     <div class="model-box flex_align_justify"><span>E</span></div>
                     <p class="model-box_text pt-3">Event</p>
@@ -168,11 +168,26 @@
 
 //////////////
 //BOTTOM-PANEL
+.cards {
+    @media only screen and (max-width: 700px) {
+        flex-direction: column;
+        align-items: center !important;
+
+        & > * {
+            // width: 50rem !important;
+            margin: 2rem 20% !important;
+
+            @media only screen and (max-width: 500px) {
+                margin: 2rem 10% !important;
+            }
+        }
+    }
+}
 
 .card {
     border: none;
     flex: 0 0 28%;
-    height: 32rem;
+    min-height: 32rem;
 
     &-title {
         font-size: 1.4rem;
@@ -270,6 +285,14 @@ table-hover {
         border-radius: 2.5rem;
         font-size: 1.2rem;
         margin-bottom: 3rem !important;
+
+        @media only screen and (max-width: 990px) {
+            margin-left: 3rem !important;
+        }
+        
+        &:focus {
+            outline: none;
+        }
 
         &--symbol {
             width: 2.5rem;

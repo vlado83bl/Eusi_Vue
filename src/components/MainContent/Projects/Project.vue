@@ -36,6 +36,21 @@
         display: flex;
         flex-direction: row;
         align-items: center !important;
+
+        @media only screen and (max-width: 700px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 10%;
+            
+            & > * {
+                margin: 1rem auto;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            margin: 0;
+        }
     }
     /////////////////////
     //STYLING SINGLE CARD IN GRID VIEW
@@ -61,6 +76,10 @@
         &_project {
             flex: 0 0 25%; 
             margin-left: 4rem;
+
+             @media only screen and (max-width: 700px) {
+                margin: 1rem auto;
+            }
         }
     }
 

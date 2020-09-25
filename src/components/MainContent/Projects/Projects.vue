@@ -128,6 +128,10 @@ export default {
             border-radius: 2.5rem;
             font-size: 1.2rem;
 
+            @media only screen and (max-width: 500px) {
+                font-size: 1rem;
+            }
+
                 &:focus {
                     outline: none;
                 }

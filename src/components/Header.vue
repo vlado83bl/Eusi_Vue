@@ -33,6 +33,10 @@
 
     .header {
         border-bottom: 1px solid rgb(220, 225, 232);
+
+        @media only screen and (max-width: 600px) {
+            flex-direction: column;
+        }
     }
 
     .brand-logo {
@@ -70,6 +74,11 @@
             font-size: 3rem;
             color: rgb(185, 197, 209);
             font-weight: 200;
+
+             @media only screen and (max-width: 600px) {
+                font-size: 1.8rem;
+                width: 50%;
+            }
         }
 
         &_right {
@@ -78,6 +87,10 @@
                 
                 font-size: 2rem;
                 color: rgb(135, 148, 159);
+
+                 @media only screen and (max-width: 600px) {
+                    font-size: 1.8rem;
+                }
 
                 .user-name {
                     font-weight: 600;
